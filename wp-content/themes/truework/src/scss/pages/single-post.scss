@@ -1,0 +1,64 @@
+@import "../partials/variables";
+@import "../partials/mixins";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.section-single-post {
+  overflow-x: hidden;
+
+  .turn-back {
+    line-height: 2em;
+    display: inline-block;
+    @include media-breakpoint-up(md) {
+      height: 34.5px;
+    }
+
+    i {
+      display: inline-block;
+      transform: translateY(.1em);
+    }
+  }
+
+  .single-post {
+    box-shadow: 0 0 20px rgba(96, 123, 191, .15);
+    transition: box-shadow .5s;
+    padding: 1.5rem 1.5rem 0;
+
+    @include media-breakpoint-up(md) {
+      padding: 2rem 2.5rem 0;
+    }
+
+    .post-date {
+      i:before {
+        color: $light-400;
+      }
+    }
+  }
+
+  .post-content {
+    line-height: 1.5;
+  }
+}
+
+.section-jobs-slider {
+  overflow-x: hidden;
+}
+
+.section-news {
+  overflow-x: unset;
+
+  @include media-breakpoint-up(xl) {
+    .news-list {
+      > [class^="col-"]:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    .news-item-image {
+      padding-top: 33.3%;
+    }
+    .news-item-excerpt, .news-item-readmore {
+      display: none;
+    }
+  }
+}

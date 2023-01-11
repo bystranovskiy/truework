@@ -1,0 +1,155 @@
+@import "../partials/variables";
+@import "../partials/mixins";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.single-job {
+  box-shadow: 0 0 20px rgba(96, 123, 191, .15);
+  transition: box-shadow .5s;
+  padding: 1.5rem 1.5rem 0;
+
+  @include media-breakpoint-up(md) {
+    padding: 2rem 2.5rem 0;
+  }
+
+  .job-info, .job-feedback, .job-footer, &.popup-form .job-contact-form {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: calc(1.5rem - 15px);
+    padding-right: calc(1.5rem - 15px);
+
+    @include media-breakpoint-up(md) {
+      margin-left: -2.5rem;
+      margin-right: -2.5rem;
+      padding-left: calc(2.5rem - 15px);
+      padding-right: calc(2.5rem - 15px);
+    }
+  }
+
+  &:not(.popup-form) .job-feedback, .job-footer, &.popup-form .job-contact-form {
+    background-color: $light-200;
+  }
+
+  .job-options {
+    .option-mark {
+      border: 1px solid $orange;
+      padding: .5rem 1rem;
+      border-radius: 5px;
+    }
+  }
+
+}
+
+.popup-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 680px;
+  max-width: calc(100vw - 2rem);
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+  .single-job {
+    background-color: $white;
+    max-height: calc(100vh - 5rem);
+    @include custom-scrollbar;
+    margin-top: 3rem;
+
+  }
+
+  .wpcf7 {
+
+    p {
+      margin: 0;
+    }
+
+    label {
+      text-indent: 1rem;
+      display: block;
+      line-height: 2;
+    }
+
+    input[type="text"], input[type="tel"], textarea {
+      background-color: $white;
+      display: block;
+      width: 100%;
+      height: 40px;
+      border: 2px solid $light-blue;
+      transition: border-color .3s;
+
+      &:hover, &:focus {
+        outline: none;
+        border-color: $green;
+      }
+
+      &.wpcf7-not-valid {
+        border-color: rgba($red, .5);
+
+        &:hover, &:focus {
+          border-color: $red;
+        }
+      }
+    }
+
+    textarea {
+      height: 130px;
+      resize: none;
+    }
+
+    .wpcf7-spinner, .wpcf7-not-valid-tip, br {
+      display: none;
+    }
+
+    .wpcf7-response-output {
+      margin: 2rem 0 0;
+    }
+
+    .wpcf7-form {
+      transition: opacity .5s;
+
+      &.submitting {
+        pointer-events: none;
+        opacity: .5;
+      }
+
+      &.invalid {
+        .wpcf7-response-output {
+          border-color: $orange;
+        }
+      }
+
+      &.sent {
+        .wpcf7-response-output {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .thank-you-message {
+    h2 {
+      max-width: 240px;
+      border-bottom: 1px solid $light-500;
+    }
+  }
+}
+
+.popup-open {
+  overflow: hidden;
+
+  #page {
+
+    &:after {
+      transition: visibility 0s, opacity .5s;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

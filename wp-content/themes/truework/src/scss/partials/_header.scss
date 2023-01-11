@@ -1,0 +1,174 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  z-index: 999;
+
+  a[href^="tel:"] {
+    &:hover {
+      color: $dark;
+    }
+  }
+
+  a[href^="mailto:"] {
+    color: $orange;
+    font-size: 1.1875rem;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-color: $orange;
+    }
+  }
+
+  .top-header {
+    border-bottom: 1px solid $light-400;
+  }
+
+  ul.menu-top {
+    list-style: none;
+    display: flex;
+    margin: 0 -10px;
+    padding: 0;
+    font-size: 1.125rem;
+
+    li {
+      padding: 0 10px;
+    }
+
+    a {
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        border-color: $dark;
+        color: $dark;
+      }
+    }
+  }
+
+  .custom-logo {
+    @include media-breakpoint-down(sm) {
+      height: 32px;
+      width: auto;
+    }
+  }
+
+  .menu-toggle {
+    font-size: 2rem;
+    cursor: pointer;
+    color: $green;
+    transition: .3s;
+
+    &:before {
+      margin: 0;
+    }
+
+    &:hover {
+      color: $dark-green;
+    }
+
+  }
+
+}
+
+.slideout-menu {
+  position: fixed;
+  background-color: $dark-green;
+  color: $white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  overflow-x: hidden;
+  @include custom-scrollbar;
+  text-align: center;
+
+  a {
+    color: $white;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  .close {
+    position: fixed;
+    top: 6px;
+    right: 10px;
+  }
+
+  .custom-logo {
+    display: block;
+    margin: 1rem auto 0;
+    filter: brightness(100);
+  }
+
+  .site-slogan {
+    line-height: 1.2;
+    font-size: 0.875rem;
+  }
+
+  ul.menu-top {
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin-bottom: .5rem;
+    }
+
+    a {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+  }
+
+  .site-contacts {
+    border-top: 1px solid $green;
+
+    a {
+      font-size: 1.375rem;
+    }
+  }
+
+  .menu-social {
+    justify-content: center;
+    margin: 0 -1.5rem;
+
+    li {
+      transform: scale(2);
+      margin: 0 1.5rem;
+
+      &:before {
+        transition: .3s;
+      }
+
+      &:hover {
+        background-color: $white;
+
+        &:before {
+          color: $green;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .slideout-open {
+    overflow: hidden;
+
+    #page {
+      transform: translateX(-300px);
+
+      header {
+        box-shadow: none;
+      }
+
+      &:after {
+        transition: visibility 0s, opacity .5s;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

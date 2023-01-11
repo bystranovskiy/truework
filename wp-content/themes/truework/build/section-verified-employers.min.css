@@ -1,0 +1,2 @@
+.section-verified-employers{background-color:#ECECEC;overflow-x:hidden}.verified-employer-item-inner{background-color:#fff;box-shadow:0 0 20px rgba(96,123,191,0.1);height:195px;display:flex;align-items:center;justify-content:center;padding:3rem}@media (min-width: 720px){.verified-employer-item-inner{width:240px}}.verified-employer-item-inner img{display:block;max-width:100%;max-height:100%;height:auto;object-fit:contain;transition:.3s}.verified-employer-item-inner:hover img{transform:scale(1.2)}
+

@@ -1,0 +1,27 @@
+@import "../partials/variables";
+@import "../partials/mixins";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.section-posts-category {
+  overflow:hidden;
+
+}
+
+.section-news {
+  overflow-x: unset;
+
+  @include media-breakpoint-up(md) {
+    .news-list {
+      > [class^="col-"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+    .news-item-image {
+      padding-top: 33.3%;
+    }
+  }
+
+}

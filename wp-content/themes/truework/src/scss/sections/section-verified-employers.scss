@@ -1,0 +1,42 @@
+@import "../partials/variables";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.section-verified-employers {
+  background-color: $light-500;
+  overflow-x: hidden;
+}
+
+.verified-employers-list {
+
+}
+
+.verified-employer-item-inner {
+  background-color: $white;
+  box-shadow: 0 0 20px rgba(96, 123, 191, 0.1);
+  height: 195px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+
+  @include media-breakpoint-up(md) {
+    width: 240px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: .3s;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
+  }
+}

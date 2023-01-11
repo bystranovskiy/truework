@@ -1,0 +1,416 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: 400;
+  color: $dark-green;
+  @include custom-scrollbar;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: $font-secondary;
+  font-weight: 700;
+}
+
+h1, .h1 {
+  font-size: 2rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 2.5rem;
+  }
+}
+
+h2, .h2 {
+  font-size: 1.5rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.875rem;
+  }
+}
+
+h3, .h3 {
+  font-size: 1.375rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.5rem;
+  }
+}
+
+h4, .h4 {
+  font-size: 1.25rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.375rem;
+  }
+}
+
+h5, .h5 {
+  font-size: 1.125rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.25rem;
+  }
+}
+
+h6, .h6 {
+  font-size: 1rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.125rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $green;
+  transition: .3s;
+
+  &:hover {
+    color: $dark-green;
+  }
+}
+
+hr {
+  height: 1px;
+  width: 100%;
+  display: block;
+  border: 0;
+  margin: .5rem 0;
+  background-color: $light-500;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  &:before {
+    margin: 0;
+  }
+
+  &.icon-telegram {
+    &:before {
+      margin: 0 .2em 0 0;
+    }
+  }
+
+  &.icon-man-women {
+    &:before {
+      margin: 0 .7em 0 0;
+    }
+  }
+}
+
+.custom-logo-link {
+  display: inline-block;
+}
+
+#page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: transform .5s;
+  position: relative;
+  //z-index: 1;
+  background-color: $white;
+
+  &:after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    //background-color: rgba($dark-green, .9);
+    background: rgba(14, 17, 43, .56);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    backdrop-filter: blur(1px);
+    transition: visibility 0s .5s, opacity .5s;
+  }
+}
+
+main {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+ul.menu-social {
+  display: flex;
+  margin: 0 -10px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0 10px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: $green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-color .2s;
+    font-size: 0;
+    overflow: hidden;
+    padding: 0;
+
+    &:before {
+      color: $white;
+      font-size: 0.75rem;
+    }
+
+    &:hover {
+      background-color: $dark-green;
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 0 20px rgba(#5f7abf, .25);
+  border-radius: 1px;
+}
+
+.img-responsive {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.625rem 1rem;
+  line-height: 1.125;
+  font-family: $font-secondary;
+  text-align: center;
+  transition: .3s;
+  border: 1px solid $light-600;
+  color: $white;
+  background-color: $light-600;
+
+  &:hover {
+    color: $green;
+    background-color: $white;
+  }
+
+  &.btn-primary {
+    border-color: $green;
+    color: $white;
+    background-color: $green;
+
+    &:hover {
+      color: $green;
+      background-color: $white;
+    }
+  }
+
+  &.btn-primary-outline {
+    border-color: $green;
+    background-color: $white;
+    color: $green;
+
+    &:hover {
+      color: $white;
+      background-color: $green;
+    }
+  }
+
+  &.btn-secondary {
+    border-color: $orange;
+    color: $white;
+    background-color: $orange;
+
+    &:hover {
+      color: $orange;
+      background-color: $white;
+    }
+  }
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  .page-numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid $light-200;
+    transition: background-color .3s;
+
+    &:not(.dots):not(.current) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $light-200;
+      }
+    }
+
+    &:not(:last-child) {
+      border-right: 0;
+    }
+
+    &.current {
+      background-color: $green;
+      color: $white;
+      border-color: $green;
+
+      + .page-numbers {
+        border-left: 0;
+      }
+    }
+  }
+}
+
+.slick-arrow {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background-color: $white;
+  box-shadow: 0 0 20px rgba(96, 123, 191, .25);
+  transition: .3s;
+  z-index: 1;
+
+  &:before {
+    font-family: 'truework';
+    color: $dark-green;
+    font-size: 2rem;
+    transition: .3s;
+  }
+
+  &:not(.slick-disabled) {
+    &:hover {
+      box-shadow: 0 0 30px rgba(96, 123, 191, .6);
+    }
+
+    &:active {
+      background-color: $light-200;
+    }
+  }
+
+  &.slick-disabled {
+    box-shadow: 0 0 20px rgba(96, 123, 191, .15);
+    cursor: auto;
+    opacity: .3;
+
+    &:before {
+      color: $light-400;
+
+    }
+  }
+}
+
+.slick-next {
+  right: 0;
+  @include media-breakpoint-up(sm) {
+    //right: .6rem;
+  }
+
+  &:before {
+    content: '\f105';
+  }
+}
+
+.slick-prev {
+  left: 0;
+  @include media-breakpoint-up(sm) {
+    //left: .6rem;
+  }
+
+  &:before {
+    content: '\f104';
+  }
+}
+
+.slick-list {
+  margin: 0 auto !important;
+  max-width: calc(100% - 80px);
+  overflow: visible !important;
+
+  @include media-breakpoint-up(sm) {
+    max-width: 360px;
+  }
+
+  @include media-breakpoint-up(md) {
+    max-width: 512px;
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: 768px;
+  }
+  @include media-breakpoint-up(xl) {
+    max-width: 1024px;
+  }
+  @include media-breakpoint-up(xxl) {
+    max-width: 1280px;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    transition: opacity .5s, visibility 0s;
+    flex: none;
+    height: unset;
+    float: none;
+
+    &:not(.slick-active) {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .5s, visibility 0s .5s;
+    }
+  }
+}
+
+
+.close {
+  border-radius: 50%;
+  border: 2px solid $white;
+  background-color: rgba($white, .25);
+  cursor: pointer;
+  transition: background-color .3s;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    background-color: $white;
+  }
+
+  &:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+}

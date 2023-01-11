@@ -1,0 +1,103 @@
+@import "../partials/variables";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.section-get-new-vacancies {
+  font-size: 1.25rem;
+
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+}
+
+.menu-social-buttons {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  margin: 0 -.5rem;
+
+  @include media-breakpoint-down(md) {
+    justify-content: center;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    margin: 0 -.75rem;
+  }
+
+  li {
+    border-radius: 4px;
+    color: $white;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    margin: .5rem;
+    font-size: 1rem;
+    padding: 1rem;
+
+    @include media-breakpoint-down(lg) {
+      &:before {
+        transform: scale(1.2);
+      }
+      &:after {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 150px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      width: 160px;
+      margin: .5rem .75rem;
+      font-size: 1.125rem;
+    }
+
+    &:after {
+      margin-left: 0.5rem;
+    }
+
+    &.icon-facebook {
+      background: #0B85E0;
+
+      &:after {
+        content: "Facebook";
+      }
+    }
+
+    &.icon-viber {
+      background: #7F40BD;
+
+      &:after {
+        content: "Viber";
+      }
+    }
+
+    &.icon-telegram {
+      background: #039BE5;
+
+      &:after {
+        content: "Telegram";
+      }
+    }
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 0;
+    background-color: rgba($white, .25);
+    opacity: 0;
+    transition: opacity .3s;
+    border-radius: 4px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

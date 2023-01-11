@@ -1,0 +1,88 @@
+@import "../partials/variables";
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.section-popular-specialties {
+  background-color: $light-500;
+  overflow-x: hidden;
+
+  .show-all-specialties {
+    width: 100%;
+    max-width: calc(100% - 80px);
+    @include media-breakpoint-up(sm) {
+      max-width: calc(100% - 106px);
+    }
+    @include media-breakpoint-up(md) {
+      width: 240px;
+    }
+  }
+
+}
+
+.popular-specialties-list {
+
+}
+
+.popular-specialty-item-inner {
+  width: 100%;
+  height: 312px;
+  position: relative;
+  cursor: pointer;
+  text-align: left;
+  border: 0;
+  padding: 0;
+  border-radius: 1px;
+  overflow: hidden;
+
+  @include media-breakpoint-up(md) {
+    width: 240px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rubric-title {
+    color: $white;
+    position: absolute;
+    padding: 1rem;
+    top: 70%;
+    z-index: 1;
+
+    small {
+      font-family: $font-primary;
+      font-weight: normal;
+    }
+  }
+
+  &:before, &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+  }
+
+  &:before {
+    background: linear-gradient(164.79deg, transparent 43.15%, $green 92.1%);
+  }
+
+  &:after {
+    background: linear-gradient(0.65deg, rgba(3, 84, 91, 0.8) 0.6%, rgba(5, 75, 81, 0.8) 24.14%, rgba(25, 127, 136, 0) 63.48%);
+    opacity: 0;
+    transition: opacity .5s;
+  }
+
+
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+
+}
